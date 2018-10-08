@@ -18,15 +18,15 @@
 
 // @flow
 
-import CreatorSection from './creator-section/creator-section';
+import AuthorSection from './author-section/author-section';
 import EditionSection from './edition-section/edition-section';
 import PublicationSection from './publication-section/publication-section';
 import PublisherSection from './publisher-section/publisher-section';
 import WorkSection from './work-section/work-section';
 import aliasEditorReducer from './alias-editor/reducer';
+import authorSectionReducer from './author-section/reducer';
 import buttonBarReducer from './button-bar/reducer';
 import {combineReducers} from 'redux-immutable';
-import creatorSectionReducer from './creator-section/reducer';
 import editionSectionReducer from './edition-section/reducer';
 import identifierEditorReducer from './identifier-editor/reducer';
 import nameSectionReducer from './name-section/reducer';
@@ -34,7 +34,7 @@ import publicationSectionReducer from './publication-section/reducer';
 import publisherSectionReducer from './publisher-section/reducer';
 import relationshipSectionReducer from './relationship-editor/reducer';
 import submissionSectionReducer from './submission-section/reducer';
-import {validateForm as validateCreatorForm} from './validators/creator.js';
+import {validateForm as validateAuthorForm} from './validators/author';
 import {validateForm as validateEditionForm} from './validators/edition.js';
 import {
 	validateForm as validatePublicationForm
@@ -52,7 +52,7 @@ export function isAliasEmpty(
 
 export function getEntitySection(entityType: string) {
 	const SECTION_MAP = {
-		creator: CreatorSection,
+		author: AuthorSection,
 		edition: EditionSection,
 		publication: PublicationSection,
 		publisher: PublisherSection,
@@ -64,7 +64,7 @@ export function getEntitySection(entityType: string) {
 
 function getEntitySectionReducer(entityType: string) {
 	const SECTION_REDUCER_MAP = {
-		creator: creatorSectionReducer,
+		author: authorSectionReducer,
 		edition: editionSectionReducer,
 		publication: publicationSectionReducer,
 		publisher: publisherSectionReducer,
@@ -76,7 +76,7 @@ function getEntitySectionReducer(entityType: string) {
 
 export function getValidator(entityType: string) {
 	const VALIDATOR_MAP = {
-		creator: validateCreatorForm,
+		author: validateAuthorForm,
 		edition: validateEditionForm,
 		publication: validatePublicationForm,
 		publisher: validatePublisherForm,

@@ -20,6 +20,7 @@
 // @flow
 
 import * as utils from './utils';
+
 import _ from 'lodash';
 
 
@@ -68,7 +69,7 @@ function renderRelationship(relationship: Relationship) {
 		/* eslint-disable prefer-template */
 		throw new TypeError(
 			'Invalid inputs to renderRelationship:\n' +
-			JSON.stringify(relationship)
+			JSON.stringify(relationship, null, 2)
 		);
 		/* eslint-enable prefer-template */
 	}

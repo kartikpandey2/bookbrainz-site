@@ -24,14 +24,18 @@ import * as handler from '../../helpers/handler';
 import * as propHelpers from '../../../client/helpers/props';
 import * as search from '../../helpers/search';
 import * as utils from '../../helpers/utils';
+
 import type {$Request, $Response, NextFunction} from 'express';
 import type {
-	EntityTypeString, FormLanguageT as Language,
-	FormPublisherT as Publisher, FormReleaseEventT as ReleaseEvent,
+	EntityTypeString,
+	FormLanguageT as Language,
+	FormPublisherT as Publisher,
+	FormReleaseEventT as ReleaseEvent,
 	Transaction
 } from 'bookbrainz-data/lib/func/types';
 import {escapeProps, generateProps} from '../../helpers/props';
-import CreatorPage from '../../../client/components/pages/entities/creator';
+
+import AuthorPage from '../../../client/components/pages/entities/author';
 import DeletionForm from '../../../client/components/forms/deletion';
 import EditionPage from '../../../client/components/pages/entities/edition';
 import EntityRevisions from '../../../client/components/pages/entity-revisions';
@@ -54,7 +58,7 @@ type PassportRequest = $Request & {user: any, session: any};
 const log = new Log(config.site.log);
 
 const entityComponents = {
-	creator: CreatorPage,
+	author: AuthorPage,
 	edition: EditionPage,
 	publication: PublicationPage,
 	publisher: PublisherPage,

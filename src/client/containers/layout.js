@@ -111,7 +111,7 @@ class Layout extends React.Component {
 								<FontAwesome name="th-list"/>&nbsp;&nbsp;Edition Group
 							</MenuItem>
 							<MenuItem divider/>
-							<MenuItem href="/creator/create">
+							<MenuItem href="/author/create">
 								<FontAwesome name="user"/>&nbsp;&nbsp;Author
 							</MenuItem>
 							<MenuItem href="/publisher/create">

@@ -89,7 +89,7 @@ class EntitySearch extends React.Component {
 	renderOption(option) {
 		const ENTITY_TYPE_ICONS = {
 			Area: 'globe',
-			Creator: 'user',
+			Author: 'user',
 			Edition: 'book',
 			Publication: 'th-list',
 			Publisher: 'university',

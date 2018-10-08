@@ -20,14 +20,17 @@
 
 import {get, validateDate, validatePositiveInteger} from './base';
 import {
-	validateAliases, validateIdentifiers, validateNameSection,
+	validateAliases,
+	validateIdentifiers,
+	validateNameSection,
 	validateSubmissionSection
 } from './common';
+
 import _ from 'lodash';
 import type {_IdentifierType} from '../../../types';
 
 
-export function validateCreatorSectionBeginArea(value: any): boolean {
+export function validateAuthorSectionBeginArea(value: any): boolean {
 	if (!value) {
 		return true;
 	}
@@ -35,11 +38,11 @@ export function validateCreatorSectionBeginArea(value: any): boolean {
 	return validatePositiveInteger(get(value, 'id', null), true);
 }
 
-export function validateCreatorSectionBeginDate(value: any): boolean {
+export function validateAuthorSectionBeginDate(value: any): boolean {
 	return validateDate(value);
 }
 
-export function validateCreatorSectionEndArea(value: any): boolean {
+export function validateAuthorSectionEndArea(value: any): boolean {
 	if (!value) {
 		return true;
 	}
@@ -47,31 +50,31 @@ export function validateCreatorSectionEndArea(value: any): boolean {
 	return validatePositiveInteger(get(value, 'id', null), true);
 }
 
-export function validateCreatorSectionEndDate(value: any): boolean {
+export function validateAuthorSectionEndDate(value: any): boolean {
 	return validateDate(value);
 }
 
-export function validateCreatorSectionEnded(value: any): boolean {
+export function validateAuthorSectionEnded(value: any): boolean {
 	return _.isNull(value) || _.isBoolean(value);
 }
 
-export function validateCreatorSectionType(value: any): boolean {
+export function validateAuthorSectionType(value: any): boolean {
 	return validatePositiveInteger(value);
 }
 
-export function validateCreatorSectionGender(value: any): boolean {
+export function validateAuthorSectionGender(value: any): boolean {
 	return validatePositiveInteger(value);
 }
 
-export function validateCreatorSection(data: any): boolean {
+export function validateAuthorSection(data: any): boolean {
 	return (
-		validateCreatorSectionBeginArea(get(data, 'beginArea', null)) &&
-		validateCreatorSectionBeginDate(get(data, 'beginDate', null)) &&
-		validateCreatorSectionEndArea(get(data, 'endArea', null)) &&
-		validateCreatorSectionEndDate(get(data, 'endDate', null)) &&
-		validateCreatorSectionEnded(get(data, 'ended', null)) &&
-		validateCreatorSectionType(get(data, 'gender', null)) &&
-		validateCreatorSectionType(get(data, 'type', null))
+		validateAuthorSectionBeginArea(get(data, 'beginArea', null)) &&
+		validateAuthorSectionBeginDate(get(data, 'beginDate', null)) &&
+		validateAuthorSectionEndArea(get(data, 'endArea', null)) &&
+		validateAuthorSectionEndDate(get(data, 'endDate', null)) &&
+		validateAuthorSectionEnded(get(data, 'ended', null)) &&
+		validateAuthorSectionType(get(data, 'gender', null)) &&
+		validateAuthorSectionType(get(data, 'type', null))
 	);
 }
 
@@ -84,7 +87,7 @@ export function validateForm(
 			get(formData, 'identifierEditor', {}), identifierTypes
 		),
 		validateNameSection(get(formData, 'nameSection', {})),
-		validateCreatorSection(get(formData, 'creatorSection', {})),
+		validateAuthorSection(get(formData, 'authorSection', {})),
 		validateSubmissionSection(get(formData, 'submissionSection', {}))
 	];
 

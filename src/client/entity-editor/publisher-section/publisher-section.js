@@ -19,13 +19,19 @@
 // @flow
 
 import {
-	type Action, debouncedUpdateBeginDate, debouncedUpdateEndDate,
-	updateArea, updateEnded, updateType
+	type Action,
+	debouncedUpdateBeginDate,
+	debouncedUpdateEndDate,
+	updateArea,
+	updateEnded,
+	updateType
 } from './actions';
 import {Checkbox, Col, Row} from 'react-bootstrap';
 import {
-	validatePublisherSectionBeginDate, validatePublisherSectionEndDate
+	validatePublisherSectionBeginDate,
+	validatePublisherSectionEndDate
 } from '../validators/publisher';
+
 import CustomInput from '../../input';
 import DateField from '../common/date-field';
 import EntitySearchField from '../common/entity-search-field';
@@ -71,7 +77,7 @@ type OwnProps = {
 type Props = StateProps & DispatchProps & OwnProps;
 
 /**
- * Container component. The CreatorSection component contains input fields
+ * Container component. The PublisherSection component contains input fields
  * specific to the publisher entity. The intention is that this component is
  * rendered as a modular section within the entity editor.
  *

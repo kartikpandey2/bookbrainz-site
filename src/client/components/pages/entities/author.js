@@ -31,13 +31,13 @@ const {extractAttribute, getTypeAttribute, getEntityUrl} = entityHelper;
 const {Col, Row} = bootstrap;
 
 
-function CreatorAttributes({creator}) {
-	const type = getTypeAttribute(creator.creatorType).data;
-	const gender = extractAttribute(creator.gender, 'name');
-	const beginArea = extractAttribute(creator.beginArea, 'name');
-	const endArea = extractAttribute(creator.endArea, 'name');
-	const beginDate = extractAttribute(creator.beginDate);
-	const endDate = extractAttribute(creator.endDate);
+function AuthorAttributes({author}) {
+	const type = getTypeAttribute(author.authorType).data;
+	const gender = extractAttribute(author.gender, 'name');
+	const beginArea = extractAttribute(author.beginArea, 'name');
+	const endArea = extractAttribute(author.endArea, 'name');
+	const beginDate = extractAttribute(author.beginDate);
+	const endDate = extractAttribute(author.endDate);
 
 	return (
 		<div>
@@ -63,7 +63,7 @@ function CreatorAttributes({creator}) {
 					</dl>
 				</Col>
 				{
-					creator.ended &&
+					author.ended &&
 					<Col md={3}>
 						<dl>
 							<dt>End Date</dt>
@@ -77,13 +77,13 @@ function CreatorAttributes({creator}) {
 		</div>
 	);
 }
-CreatorAttributes.displayName = 'CreatorAttributes';
-CreatorAttributes.propTypes = {
-	creator: PropTypes.object.isRequired
+AuthorAttributes.displayName = 'AuthorAttributes';
+AuthorAttributes.propTypes = {
+	author: PropTypes.object.isRequired
 };
 
 
-function CreatorDisplayPage({entity, identifierTypes}) {
+function AuthorDisplayPage({entity, identifierTypes}) {
 	const urlPrefix = getEntityUrl(entity);
 	return (
 		<div>
@@ -96,7 +96,7 @@ function CreatorDisplayPage({entity, identifierTypes}) {
 				</Col>
 				<Col md={10}>
 					<EntityTitle entity={entity}/>
-					<CreatorAttributes creator={entity}/>
+					<AuthorAttributes author={entity}/>
 				</Col>
 			</Row>
 			<EntityLinks
@@ -112,13 +112,13 @@ function CreatorDisplayPage({entity, identifierTypes}) {
 		</div>
 	);
 }
-CreatorDisplayPage.displayName = 'CreatorDisplayPage';
-CreatorDisplayPage.propTypes = {
+AuthorDisplayPage.displayName = 'AuthorDisplayPage';
+AuthorDisplayPage.propTypes = {
 	entity: PropTypes.object.isRequired,
 	identifierTypes: PropTypes.array
 };
-CreatorDisplayPage.defaultProps = {
+AuthorDisplayPage.defaultProps = {
 	identifierTypes: []
 };
 
-export default CreatorDisplayPage;
+export default AuthorDisplayPage;
